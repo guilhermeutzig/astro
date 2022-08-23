@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ReactButton from "../components/SpecialButtons/SpecialButton";
+import SvelteButton from "../components/SpecialButtons/SpecialButton.svelte";
+
+const title = "Components";
+---
+
+<Layout title={title}>
+  <h1>Components</h1>
+  <!-- Non-island component -->
+  <button onclick="alert('Clicked on non-island button!')">Test</button>
+  <!-- Island components -->
+  <ReactButton client:load>Click Me</ReactButton>
+  <SvelteButton client:load>Click Me</SvelteButton>
+</Layout>
+
+<style>
+  /* Styles are not applied to island components */
+  button {
+    margin-right: 1rem;
+  }
+</style>
